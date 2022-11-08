@@ -16,7 +16,8 @@ class Lorentz : public Plasma5
         virtual int fun_rhs(Real x, Real y, Real z, Real t, Vector<Real> &y0, Vector<Real> &ydot, Real dt=0) const override;
         virtual int fun_jac(Real x, Real y, Real z, Real t, Vector<Real> &y0, Vector<Real> &J) const override;
 
-        virtual bool has_freq() const override {return false;}
+        virtual bool has_freq() const override {return true;}
+        virtual Real get_max_freq(Vector<Real> &y) const override;
 
         static bool valid_state(const int global_idx) {return Plasma5::valid_state(global_idx);}
         static bool valid_solver(const int solve_idx) {return Plasma5::valid_state(solve_idx);}
